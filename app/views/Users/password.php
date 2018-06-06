@@ -1,7 +1,7 @@
 <main class="container-fluid">
     <div class="row">
         <div class="col-lg-4 offset-lg-4 ">
-            <form action="password.php" method="post" class="form">
+            <form action="/password" method="post" class="form">
                 <section class="form__wrapper">
                     <h4 class="form__title">New password</h4>
                     <div class="form-row">

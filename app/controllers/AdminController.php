@@ -20,29 +20,31 @@ class AdminController extends AppController
         $data = $_POST;
         $columns =[];
         $entities = [];
-        $table=[];
-        if(isset($data["sub_btn"])){
-            $table =  $data["selection"];
+        $table="";
+
+        if(isset($this->_MVCParams[0])){
+            $table = $this->_MVCParams[0];
             $resultSetColumns = Db::instance()->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'shoeshop' AND TABLE_NAME = '{$table}'");
             foreach ($resultSetColumns as $item) {
                 array_push($columns,$item["COLUMN_NAME"]);
             }
             $entities = QueryBuilder::table($table)->get();
+            $this->set(["table"=>$table,"columns"=>$columns,"entities"=>$entities]);
         }
+//        if(isset($data["sub_btn"])){
+//            $table =  $data["selection"];
+//            $resultSetColumns = Db::instance()->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'shoeshop' AND TABLE_NAME = '{$table}'");
+//            foreach ($resultSetColumns as $item) {
+//                array_push($columns,$item["COLUMN_NAME"]);
+//            }
+//            $entities = QueryBuilder::table($table)->get();
+//        }
         $this->set(["table"=>$table,"columns"=>$columns,"entities"=>$entities]);
     }
 
     public function editAction(){
         $data = $_POST;
-//
-//        $str="";
-//
-//        foreach ($data as $key=>$item) {
-//            $str.="[{$key}|{$item}]";
-//        }
-//        Logger::message($str);
-
-
+        $table = "";
         if(isset($data['save'])){
             $table = trim($data['table']);
 
@@ -93,6 +95,7 @@ class AdminController extends AppController
             Logger::message($sqlQuery);
             Db::instance()->execute($sqlQuery);
         }
-        header("Location: /admin");
+        $qstr = $table==""?"":"/{$table}";
+        header("Location: /admin{$qstr}");
     }
 }

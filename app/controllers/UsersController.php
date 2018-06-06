@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\models\User;
+use vendor\core\exception\BadUrlException;
 use vendor\core\utility\Logger;
 use vendor\core\utility\Mail;
 use vendor\core\utility\ReCaptcha;
@@ -120,7 +121,6 @@ class UsersController extends AppController
             } else {
                 $user = User::where("email", "=", $data["res_email"])->first();
                 if ($user == null) {
-                    println("SHIT HAPPENED", "red");
                     return;
                 }
 
@@ -144,8 +144,10 @@ class UsersController extends AppController
             if ($user == null) {
                 return;
             }
-
             $this->set(["id" => $user->id]);
+        }
+        else{
+            throw new BadUrlException();
         }
     }
 

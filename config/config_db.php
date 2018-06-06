@@ -4,7 +4,9 @@ $options = [
     \PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_ASSOC
 ];
 return[
-    'dsn' => 'mysql:host=192.168.1.181;dbname=shoeshop;charset=utf8',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=shoeshop;charset=utf8',
+
+    #'dsn' => 'mysql:host=192.168.1.181;dbname=shoeshop;charset=utf8',
     'user'=>'root',
     'pass'=>'',
     'options'=>$options

@@ -43,7 +43,7 @@ $refresh = rand();
         <div class="col-lg-5 offset-lg-1 col-9">
             <ul class="menu">
                 <li class="menu__item">
-                    <a href="main" class="menu__link">Main</a>
+                    <a href="/main" class="menu__link">Main</a>
                 </li>
                 <li class="menu__item">
                     <a href="#" class="menu__link">Women's</a>
@@ -52,13 +52,13 @@ $refresh = rand();
                     <a href="#" class="menu__link">Men's</a>
                 </li>
                 <li class="menu__item">
-                    <a href="catalog" class="menu__link">Catalog</a>
+                    <a href="/catalog" class="menu__link">Catalog</a>
                 </li>
                 <li class="menu__item">
-                    <a href="bag.html" class="menu__link">Bag</a>
+                    <a href="/bag.html" class="menu__link">Bag</a>
                 </li>
                 <li class="menu__item">
-                    <a href="product.html" class="menu__link">Product</a>
+                    <a href="/product.html" class="menu__link">Product</a>
                 </li>
                 <?php if (isset($_SESSION['user'])&&$_SESSION['user']['role_id']==2): ?>
                     <li class="menu__item">
