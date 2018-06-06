@@ -58,7 +58,7 @@ $refresh = rand();
                     <a href="/bag.html" class="menu__link">Bag</a>
                 </li>
                 <li class="menu__item">
-                    <a href="/product.html" class="menu__link">Product</a>
+                    <a href="/product" class="menu__link">Product</a>
                 </li>
                 <?php if (isset($_SESSION['user'])&&$_SESSION['user']['role_id']==2): ?>
                     <li class="menu__item">

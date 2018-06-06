@@ -34,7 +34,7 @@ spl_autoload_register(function ($class) {
 Router::add("", "home", "main");
 Router::add("main", "home", "main");
 Router::add("test", "main", "kek");
-Router::add("catalog", "home", "catalog");
+Router::add("catalog", "products", "catalog");
 Router::add("register", "users", "registration");
 Router::add("login", "users", "login");
 Router::add("restore", "users", "restore");

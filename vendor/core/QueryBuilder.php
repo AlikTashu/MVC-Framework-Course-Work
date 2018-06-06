@@ -68,6 +68,8 @@ class QueryBuilder
     {
         $this->compile();
         Logger::message($this->query);
+        Logger::message(Db::DebugSQL($this->query,$this->parameters));
+
         return Db::instance()->query($this->query, $this->parameters);
     }
 
@@ -180,10 +182,9 @@ class QueryBuilder
 
         $limitString = '';
         if (count($this->limit) !== 0) {
-            $limitString = " LIMIT '?', '?' ";
-            array_push($this->parameters, $this->limit['from']);
-            array_push($this->parameters, $this->limit['to']);
-            $limitString = rtrim($limitString, ', ');
+            $limitString = " LIMIT {$this->limit['to']} OFFSET {$this->limit['from']} ";
+
+            #$limitString = rtrim($limitString, ', ');
         }
         $this->query =
             $selectString
