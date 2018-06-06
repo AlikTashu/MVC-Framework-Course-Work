@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+  <!-- <base href="/"> -->
+
+  <title>Your bag</title>
+  <meta name="description" content="product page">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Template Basic Images Start -->
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="icon" href="/img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon-180x180.png">
+  <!-- Template Basic Images End -->
+
+  <!-- Custom Browsers Color Start -->
+  <meta name="theme-color" content="#000">
+  <!-- Custom Browsers Color End -->
+
+  <link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+
+  <header class="container-fluid">
+    <div class="row align-items-center">
+      <div class="info col">
+        <h3 class="info__text text-center">Whatever header they currently use goes here</h3>
+      </div>
+    </div>
+    <nav class="navigation row">
+        <div class="col-lg-5 offset-lg-1">
+          <ul class="menu">
+            <li class="menu__item">
+              <a href="index.html" class="menu__link">Main</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Women's</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Men's</a>
+            </li>
+            <li class="menu__item">
+              <a href="catalog.html" class="menu__link">Catalog</a>
+            </li>
+            <li class="menu__item">
+              <a href="bag.html" class="menu__link">Bag</a>
+            </li>
+            <li class="menu__item">
+              <a href="product.html" class="menu__link">Product</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </header>
+
+  <main class="container-fluid">
+    <div class="row">
+
+      <div class="col-lg-6 offset-lg-1">
+        <section class="bag">
+          <h3 class="bag__title">Your bag</h4>
+            <hr class="bag__line">
+            <section class="bag__cart">
+
+              <form action="/" method="GET" class="cart row">
+                <div class="cart__wrapper">
+                  <img src="img/snikers.png" alt="Image" class="cart__image">
+                </div>
+                <section class="cart__details">
+                  <h4 class="cart__title">Sample item title</h4>
+                  <ul class="cart__list">
+                    <li class="cart__attribute">Mark : Adidas </li>
+                    <li class="cart__attribute">Model : ZX FLUX </li>
+                    <li class="cart__attribute">Color : Black </li>
+                  </ul>
+                  <p class="cart__price">$99.99</p>
+                </section>
+                <button class="cart__delete"></button>
+              </form>
+
+              <form action="/" method="GET" class="cart row">
+                <div class="cart__wrapper">
+                  <img src="img/snikers.png" alt="Image" class="cart__image">
+                </div>
+                <section class="cart__details">
+                  <h4 class="cart__title">Sample item title</h4>
+                  <ul class="cart__list">
+                    <li class="cart__attribute">Mark : Adidas </li>
+                    <li class="cart__attribute">Model : ZX FLUX </li>
+                    <li class="cart__attribute">Color : Black </li>
+                  </ul>
+                  <p class="cart__price">$99.99</p>
+                </section>
+                <button class="cart__delete"></button>
+              </form>
+
+              <form action="/" method="GET" class="cart row">
+                <div class="cart__wrapper">
+                  <img src="img/snikers.png" alt="Image" class="cart__image">
+                </div>
+                <section class="cart__details">
+                  <h4 class="cart__title">Sample item title</h4>
+                  <ul class="cart__list">
+                    <li class="cart__attribute">Mark : Adidas </li>
+                    <li class="cart__attribute">Model : ZX FLUX </li>
+                    <li class="cart__attribute">Color : Black </li>
+                  </ul>
+                  <p class="cart__price">$99.99</p>
+                </section>
+                <button class="cart__delete"></button>
+              </form>
+
+            </section>
+        </section>
+      </div>
+
+      <div class="col-lg-3 offset-lg-1">
+        <section class="order">
+
+          <h3 class="order__title">Order summary</h3>
+          <hr class="order__line">
+          <p class="order__products">Amount of products :
+            <span class="order__amount">3</span>
+          </p>
+          <p class="order__price">Total price :
+            <span class="order__price--accent">$299.99</span>
+          </p>
+          <button class="button button--bordered order__button">Checkout</button>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/scripts.min.js"></script>
+
+</body>
+
+</html>

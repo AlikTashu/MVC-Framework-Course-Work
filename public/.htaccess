@@ -1,0 +1,8 @@
+# if the file with the specified name in the browser doesn't exist, or the directory in the browser doesn't exist then procede to the rewrite rule below
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#The Last flag ([L]) tells Apache to terminate a series of RewriteRule processing upon a match and perform the redirection
+#The Query String Appended flag ([QSA]) is used to "pass-through" existing query strings. You can define your own query sting to which the old string will be appended so be careful not to replicate key names. Failure to use the QSA flag will cause the creation of a query string in a redirection to destroy an existing query string.
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]

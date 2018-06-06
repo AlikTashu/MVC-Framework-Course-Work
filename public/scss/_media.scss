@@ -1,0 +1,55 @@
+@import "vars";
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
+@include media-breakpoint-down(lg) {}
+
+// ≥992px
+@include media-breakpoint-down(md) {
+  .jumbotron__title {
+    text-align: center;
+  }
+  .jumbotron__text {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    text-align: center;
+  }
+  .jumbotron__button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+  .detail__title {
+    text-align: center;
+  }
+}
+
+// ≥768px
+@include media-breakpoint-down(sm) {
+  .breadcrumb {
+    display: none;
+  }
+  .navigation {
+    display: none;
+  }
+  .slider {
+    text-align: center;
+  }
+}
+
+// ≥576px
+@include media-breakpoint-down(xs) {}
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
+@include media-breakpoint-up(sm) {}
+
+// ≤768px
+@include media-breakpoint-up(md) {}
+
+// ≤992px
+@include media-breakpoint-up(lg) {}
+
+// ≤1200px
+@include media-breakpoint-up(xl) {}
