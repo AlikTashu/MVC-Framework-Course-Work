@@ -26,12 +26,12 @@ $refresh = rand();
   <!-- Custom Browsers Color End -->
 
     <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css?version=<?=$refresh?>">
 <!--    <script src='https://www.google.com/recaptcha/api.js' defer></script>-->
 
 </head>
 
-<body>
+<body class="mb-5">
 
 <header class="container-fluid">
     <div class="row align-items-center">

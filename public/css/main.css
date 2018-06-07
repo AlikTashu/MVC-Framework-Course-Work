@@ -6601,7 +6601,7 @@ strong {
   border-bottom: 1px solid rgba(237, 28, 36, 0.5);
 }
 
-.purchase__select {
+.purchase__select, .filter__select {
   width: 100%;
   font-size: 1.15em;
   color: #393939;
@@ -6811,6 +6811,89 @@ strong {
 
 .table-fit {
   width: 1px;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+}
+.pages__list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pages__list-item {
+  margin: 0 10px;
+}
+
+.pages__list-link {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #393939;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: 0.3s;
+}
+.pages__list-link:hover, .pages__list-link :active, .pages__list-link .nice-select.open {
+  color: #ed1c24;
+  text-decoration: none;
+}
+
+.pages__list-link--disabled {
+  border-radius: 4px;
+  background: #000;
+  color: #6a6a6a;
+}
+.pages__list-link--disabled:hover {
+  color: #6a6a6a;
+  text-decoration: none;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+.filter__section {
+  margin-top: 20px;
+}
+
+.filter__title {
+  text-align: center;
+  font-size: 1.3em;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.filter__menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter__menu-item {
+  font-size: 1.15em;
+  color: #393939;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.filter__menu-input {
+  margin-right: 10px;
+}
+
+.filter__button {
+  display: block;
+  width: 100%;
+}
+
+.filter .list {
+  width: 100%;
 }
 
 /*==========  Desktop First  ==========*/

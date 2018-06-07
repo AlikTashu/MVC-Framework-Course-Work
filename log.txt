@@ -1,29 +1,25 @@
-Date: Thu, 07 Jun 18 00:12:06 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT ? OFFSET ?
+Date: Thu, 07 Jun 18 03:31:49 +0300
+Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:12:06 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT ? OFFSET ?
+Date: Thu, 07 Jun 18 03:31:49 +0300
+Message: SELECT * FROM brands 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:31:49 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
 
-Date: Thu, 07 Jun 18 00:12:06 +0300
-|Exception
-|Type: PDOException
-|Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0' OFFSET '8'' at line 1
-|File: C:\openServer\OSPanel\domains\shoes.loc\vendor\core\Db.php
-|Line: 45
-|Code: 42000
-|Inner exception: null
-------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 00:12:06 +0300
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:31:49 +0300
 Message: CONTROLLER: app\controllers\FaviconController
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-Date: Thu, 07 Jun 18 00:12:06 +0300
+Date: Thu, 07 Jun 18 03:31:49 +0300
 |Exception
 |Type: vendor\core\exception\BadUrlException
 |Message: Controller not found
@@ -31,32 +27,67 @@ Date: Thu, 07 Jun 18 00:12:06 +0300
 |Line: 107
 |Code: 0
 |Inner exception: null
-------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 00:13:12 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT ? OFFSET ? 
+------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 03:32:10 +0300
+Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:13:12 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT ? OFFSET ? 
+Date: Thu, 07 Jun 18 03:32:10 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:10 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:16 +0300
+Message: SELECT * FROM categories 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:16 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:16 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id WHERE  ( categories.name = ?  )  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:22 +0300
+Message: SELECT * FROM categories 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:22 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:32:22 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id WHERE  AND ( brands.name = ?  )  LIMIT 9 OFFSET 0
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-Date: Thu, 07 Jun 18 00:13:12 +0300
+Date: Thu, 07 Jun 18 03:32:22 +0300
 |Exception
 |Type: PDOException
-|Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0' OFFSET '8'' at line 1
+|Message: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND ( brands.name = 'Nike'  )  LIMIT 9 OFFSET 0' at line 1
 |File: C:\openServer\OSPanel\domains\shoes.loc\vendor\core\Db.php
 |Line: 45
 |Code: 42000
 |Inner exception: null
-------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 00:13:12 +0300
+------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 03:32:22 +0300
 Message: CONTROLLER: app\controllers\FaviconController
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-Date: Thu, 07 Jun 18 00:13:12 +0300
+Date: Thu, 07 Jun 18 03:32:22 +0300
 |Exception
 |Type: vendor\core\exception\BadUrlException
 |Message: Controller not found
@@ -64,163 +95,151 @@ Date: Thu, 07 Jun 18 00:13:12 +0300
 |Line: 107
 |Code: 0
 |Inner exception: null
-------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 00:13:59 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 8 OFFSET 0 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:13:59 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 8 OFFSET 0 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:13:59 +0300
+------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 03:33:45 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:13:59 +0300
+Date: Thu, 07 Jun 18 03:33:45 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:33:45 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id WHERE  ( brands.name = ?  )  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:33:48 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:12 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
+Date: Thu, 07 Jun 18 03:33:48 +0300
+Message: SELECT * FROM brands 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:12 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
+Date: Thu, 07 Jun 18 03:33:48 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id WHERE  ( categories.name = ?  )  LIMIT 9 OFFSET 0
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:12 +0300
+Date: Thu, 07 Jun 18 03:33:52 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:12 +0300
+Date: Thu, 07 Jun 18 03:33:52 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:33:52 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id WHERE  ( brands.name = ?  OR  brands.name = ?  )  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:33:58 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:15 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 18 OFFSET 9 
+Date: Thu, 07 Jun 18 03:33:58 +0300
+Message: SELECT * FROM brands 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:15 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 18 OFFSET 9 
+Date: Thu, 07 Jun 18 03:33:58 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id WHERE  ( categories.name = ?  OR  categories.name = ?  )   AND   ( brands.name = ?  )  LIMIT 9 OFFSET 0
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:15 +0300
+Date: Thu, 07 Jun 18 03:34:14 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:15 +0300
+Date: Thu, 07 Jun 18 03:34:14 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:34:14 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:34:16 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:17 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
+Date: Thu, 07 Jun 18 03:34:16 +0300
+Message: SELECT * FROM brands 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:17 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
+Date: Thu, 07 Jun 18 03:34:16 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 9
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:17 +0300
+Date: Thu, 07 Jun 18 03:34:21 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:17 +0300
+Date: Thu, 07 Jun 18 03:34:21 +0300
+Message: SELECT * FROM brands 
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:34:21 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+Date: Thu, 07 Jun 18 03:34:23 +0300
+Message: CONTROLLER: app\controllers\ProductController
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Date: Thu, 07 Jun 18 03:34:23 +0300
+|Exception
+|Type: vendor\core\exception\BadUrlException
+|Message: Controller not found
+|File: C:\openServer\OSPanel\domains\shoes.loc\vendor\core\router\Router.php
+|Line: 107
+|Code: 0
+|Inner exception: null
+------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 03:34:23 +0300
+Message: CONTROLLER: app\controllers\FaviconController
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Date: Thu, 07 Jun 18 03:34:23 +0300
+|Exception
+|Type: vendor\core\exception\BadUrlException
+|Message: Controller not found
+|File: C:\openServer\OSPanel\domains\shoes.loc\vendor\core\router\Router.php
+|Line: 107
+|Code: 0
+|Inner exception: null
+------------------------------------------------------------------------------------------------------------------------------Date: Thu, 07 Jun 18 03:34:24 +0300
 Message: SELECT * FROM categories 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:20 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 18 OFFSET 9 
+Date: Thu, 07 Jun 18 03:34:24 +0300
+Message: SELECT * FROM brands 
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:20 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 18 OFFSET 9 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:20 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:20 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:23 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:23 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:23 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:23 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:27 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 18 OFFSET 9 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:27 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 18 OFFSET 9 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:27 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:27 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:50 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:50 +0300
-Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:50 +0300
-Message: SELECT * FROM categories 
-------------------------------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------------------------------------------------------
-Date: Thu, 07 Jun 18 00:14:50 +0300
-Message: SELECT * FROM categories 
+Date: Thu, 07 Jun 18 03:34:24 +0300
+Message: SELECT * FROM products JOIN models ON products.model_id = models.id JOIN categories ON models.category_id = categories.id JOIN brands ON models.brand_id = brands.id  LIMIT 9 OFFSET 0
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------

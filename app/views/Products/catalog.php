@@ -1,9 +1,6 @@
 <div class="container-fluid">
     <div class="row">
 
-        <?php foreach ($pages as $page): ?>
-                <a href="/catalog/<?=$page?>"><?=$page?> </a>
-        <?php endforeach; ?>
 
 
         <div class="col-md-10 offset-md-1">
@@ -16,38 +13,52 @@
                 <div class="row">
 
 
+
                     <div class="col-3">
-                        <form class="box">
-                            <section class="box">
-                                <h5 class="box__title">Sort by</h5>
-                                <select name="sort_by">
-                                    <option selected value="price">Price</option>
-                                    <option value="name">Name</option>
-                                    <option value="brand">Brand</option>
+                        <form action = "/catalog" class="filter" method="get">
+                            <section class="filter__section">
+                                <h5 class="filter__title">Sort by</h5>
+                                <select class="filter__select" name="sort_by">
+                                    <option class="filter__option" selected value="price">Price</option>
+                                    <option class="filter__option" value="name">Name</option>
                                 </select>
                             </section>
-                            <section class="box">
-                                <h5 class="box__title">Categories</h5>
-                                <ul class="box__menu">
+                            <section class="filter__section">
+                                <h5 class="filter__title">Categories</h5>
+                                <ul class="filter__menu">
                                     <?php foreach ($categories as $category): ?>
-                                        <li class="box__menu-item">
+                                        <li class="filter__menu-item">
                                             <input type="checkbox"
-                                                   class="box__menu-link"><?= $category->name ?> </input>
+                                                   class="filter__menu-input" name="categories[]" value="<?= $category->name ?>"><?= $category->name ?> </input>
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
                             </section>
-                            <section class="box">
-                                <button type="submit">Filter</button>
+                            <section class="filter__section">
+                                <h5 class="filter__title">Brands</h5>
+                                <ul class="filter__menu">
+                                    <?php foreach ($brands as $brand): ?>
+                                        <li class="filter__menu-item">
+                                            <input type="checkbox"
+                                                   class="filter__menu-input" name="brands[]" value="<?= $brand->name ?>"><?= $brand->name ?> </input>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </section>
+                            <section class="filter__section">
+                                <button class="button button--bordered filter__button">Filter</button>
                             </section>
                         </form>
                     </div>
-                    <div class="col-9">
 
+
+
+
+                    <div class="col-9">
                         <div class="row">
                             <?php foreach ($products as $product): ?>
                                 <section class="product col-md-4">
-                                    <a>
+                                    <a">
                                         <img class="product__image" src="<?= $product->image_path ?>"
                                              alt="Sample image">
                                         <hr class="product__line">
@@ -59,6 +70,18 @@
                                     </a>
                                 </section>
                             <?php endforeach; ?>
+                        </div>
+                        <div class="block__line"></div>
+                        <div class="pages">
+                            <ul class="pages__list">
+
+                                <?php foreach ($pages as $page): ?>
+                                <li class="pages__list-item">
+                                    <a class="pages__list-link" href="/catalog/<?=$page?>?<?=$queryParams?>"><?=($page==$currentPage?"<span style='color:#ed1c24'>{$page}</span>":$page)?> </a>
+                                </li>
+                                <?php endforeach; ?>
+
+                            </ul>
                         </div>
                     </div>
                 </div>

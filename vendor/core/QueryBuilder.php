@@ -35,7 +35,13 @@ class QueryBuilder
 
     public function where($field1, $relation, $field2, $logicalOp = 'AND')
     {
-        array_push($this->where, ['field1' => $field1, 'relation' => $relation, 'field2' => $field2, 'logicalOp' => $logicalOp,]);
+        array_push($this->where, ['field1' => $field1, 'relation' => $relation, 'field2' => $field2, 'logicalOp' => $logicalOp]);
+        return $this;
+    }
+
+    public function whereBrace($brace)
+    {
+        array_push($this->where, ['brace' => $brace]);
         return $this;
     }
 
@@ -67,8 +73,9 @@ class QueryBuilder
     public function get()
     {
         $this->compile();
+
+
         Logger::message($this->query);
-        Logger::message(Db::DebugSQL($this->query,$this->parameters));
 
         return Db::instance()->query($this->query, $this->parameters);
     }
@@ -159,14 +166,18 @@ class QueryBuilder
         $whereString = '';
         if (count($this->where) !== 0) {
             $whereString = 'WHERE ';
-
             for ($i = 0; $i < count($this->where); $i++) {
-                $whereString .= $this->where[$i]['field1']." ". $this->where[$i]['relation'] . ' ?' . ' ';
-                array_push($this->parameters, $this->where[$i]['field2']);
-                if ($i !== count($this->where) - 1) {
-                    $whereString .= '?' . ' ';
-                    array_push($this->parameters, $this->where[$i]['logicalOp']);
+                if (!isset($this->where[$i]['brace'])) {
+                    $whereString .= $this->where[$i]['field1'] . " " . $this->where[$i]['relation'] . ' ?' . ' ';
+                    array_push($this->parameters, $this->where[$i]['field2']);
+                    if (($i !== count($this->where) - 1) && (!isset($this->where[$i+1]['brace']))) {
+                        $whereString .= " {$this->where[$i]['logicalOp']} " . ' ';
+                    }
                 }
+                else{
+                    $whereString.=" {$this->where[$i]['brace']} ";
+                }
+
             }
         }
 
@@ -183,8 +194,7 @@ class QueryBuilder
         $limitString = '';
         if (count($this->limit) !== 0) {
             $limitString = " LIMIT {$this->limit['to']} OFFSET {$this->limit['from']} ";
-
-            #$limitString = rtrim($limitString, ', ');
+            $limitString = rtrim($limitString, ', ');
         }
         $this->query =
             $selectString
