@@ -58,7 +58,7 @@
                         <div class="row">
                             <?php foreach ($products as $product): ?>
                                 <section class="product col-md-4">
-                                    <a">
+                                    <a href="/product/<?=$product->number?>">
                                         <img class="product__image" src="<?= $product->image_path ?>"
                                              alt="Sample image">
                                         <hr class="product__line">

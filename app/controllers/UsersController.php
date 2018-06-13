@@ -25,9 +25,8 @@ class UsersController extends AppController
     public function registrationAction()
     {
         Logger::message("in register action ");
-        $this->isAjax = false;
         $data = $_POST;
-        $cfg = require ROOT . '/config/captcha_config.php';
+        $captchaConfig = require ROOT . '/config/captcha_config.php';
         $message = "";
         if (isset($data["reg_login"]) || isset($data["reg_password"]) || isset($data["reg_email"])) {
             Logger::message("in register action with form");
@@ -51,7 +50,7 @@ class UsersController extends AppController
                 $message = array_pop($errors);
             }
         }
-        $this->set(["message" => $message, "data" => $data, "cfg" => $cfg]);
+        $this->set(["message" => $message, "data" => $data, "cfg" => $captchaConfig]);
     }
 //
 //    public function regasyncAction()
@@ -106,6 +105,8 @@ class UsersController extends AppController
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
         }
+
+        session_destroy();
         header("Location: /main");
     }
 
@@ -220,13 +221,15 @@ class UsersController extends AppController
         }
 
 
-        $dataset = SQL("SELECT * FROM users WHERE login = ?", [$data["reg_login"]]);
-        if (count($dataset) > 0) {
+        #$users = User::where('login','=',"{$data["reg_login"]}")->get();
+
+        $users = SQL("SELECT * FROM users WHERE login = ?", [$data["reg_login"]]);
+        if (count($users) > 0) {
             array_push($errors, "User with the same login already exists");
         }
 
-        $dataset = SQL("SELECT * FROM users WHERE email = ?", [$data["reg_email"]]);
-        if (count($dataset) > 0) {
+        $users = SQL("SELECT * FROM users WHERE email = ?", [$data["reg_email"]]);
+        if (count($users) > 0) {
             array_push($errors, "User with the same email already exists");
         }
         return $errors;

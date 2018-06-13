@@ -10,8 +10,13 @@ namespace app\controllers;
 
 use app\models\Brand;
 use app\models\Category;
+use app\models\Order;
+use app\models\OrderItems;
 use app\models\Product;
+use vendor\core\Db;
+use vendor\core\exception\BadUrlException;
 use vendor\core\QueryBuilder;
+use vendor\core\utility\Logger;
 
 class ProductsController extends AppController
 {
@@ -26,7 +31,7 @@ class ProductsController extends AppController
         $arr = (explode('&', $_SERVER["QUERY_STRING"]));
         array_shift($arr);
         $queryParams = implode("&", $arr);
-        $flg=false;
+        $flg = false;
 
         $products = Product::join("models", "products.model_id", "models.id")->
         join("categories", "models.category_id", "categories.id")->join("brands", "models.brand_id", "brands.id")->limit($offset, $productsOnPage);
@@ -38,12 +43,12 @@ class ProductsController extends AppController
                 $products = $products->where("categories.name", "=", $category, "OR");
             }
             $products = $products->whereBrace(")");
-            $flg=true;
+            $flg = true;
         }
 
         if (isset($data["brands"][0])) {
             $brands = $data["brands"];
-            if($flg){
+            if ($flg) {
                 $products = $products->whereBrace(" AND ");
             }
             $products = $products->whereBrace("(");
@@ -56,7 +61,7 @@ class ProductsController extends AppController
 
         $products = $products->get();
 
-        if(isset($data["sort_by"])){
+        if (isset($data["sort_by"])) {
             usort($products, $this->getComparator($data["sort_by"]));
         }
 
@@ -71,6 +76,120 @@ class ProductsController extends AppController
         $pages = $this->getPagesList($productsCount, $productsOnPage);
         $this->set(["products" => $products, "queryParams" => $queryParams, "categories" => $allCategories, "brands" => $allBrands, "pages" => $pages, "currentPage" => $page]);
     }
+
+    public function checkoutAction(){
+        Logger::message(var_export($_SESSION["user"],true));
+        if(!isset($_SESSION["user"])){
+            header("Location: /main");
+        }
+        if(!isset($_SESSION["products"])){
+            header("Location: /main");
+        }
+
+        $user = $_SESSION["user"];
+
+        $products = [];
+
+        $productNumbers = $_SESSION["products"];
+        foreach ($productNumbers as $number) {
+            $product = Product::where("number", "=", $number)->join("models", "products.model_id", "models.id")->
+            join("categories", "models.category_id", "categories.id")->join("brands", "models.brand_id", "brands.id")->first();
+            $this->fillProductInfo($product);
+            $products[] = $product;
+        }
+
+
+        $order = new Order([
+            "user_id" => $user["id"],
+            "order_date" => date( "Y-m-d H:i:s" ),
+            "total_price"=> $_POST["total_price"]
+        ]);
+        $order->insert();
+
+        $orderId = Db::instance()->getLastInsertId();
+
+        Logger::message("NEW ORDER ID : {$orderId}");
+
+
+        foreach ($products as $product)
+        {
+            $orderItem = new OrderItems([
+                "order_id"=>$orderId,
+                "product_id"=>$product->id
+            ]);
+            $orderItem->insert();
+        }
+
+        unset($_SESSION["products"]);
+
+
+    }
+
+    public function productAction()
+    {
+        if (!isset($this->_MVCParams[0])) {
+            throw new BadUrlException("Product not defined");
+        }
+        $number = $this->_MVCParams[0];
+        $product = Product::join("models", "products.model_id", "models.id")->
+        join("categories", "models.category_id", "categories.id")->join("brands", "models.brand_id", "brands.id")->where("number", "=", $number)->first();
+        $this->fillProductInfo($product);
+
+        $this->set(["product" => $product]);
+
+    }
+
+
+    public function addAction()
+    {
+        if (!isset($this->_MVCParams[0])) {
+            throw BadUrlException("Add to cart without number");
+        }
+        if (!isset($_SESSION["products"])) {
+            $_SESSION["products"] = [];
+        }
+        $_SESSION["products"] [] = $this->_MVCParams[0];
+        header("Location: /catalog");
+    }
+
+    public function deleteAction()
+    {
+        if (!isset($this->_MVCParams[0])) {
+            throw BadUrlException("Delete from cart without number");
+        }
+        $id = 0;
+        Logger::message(var_export($_SESSION["products"],true));
+        foreach ($_SESSION["products"] as $key => $product) {
+            Logger::message($key);
+            if ($product == $this->_MVCParams[0]) {
+                $id = $key;
+                Logger::message("ID = {$id}");
+            }
+        }
+
+        unset($_SESSION["products"][$id]);
+
+        header("Location: /bag");
+    }
+
+
+    public function bagAction()
+    {
+        $productNumbers = $_SESSION["products"];
+        $products = [];
+        $totalPrice = 0;
+        foreach ($productNumbers as $number) {
+            $product = Product::where("number", "=", $number)->join("models", "products.model_id", "models.id")->
+            join("categories", "models.category_id", "categories.id")->join("brands", "models.brand_id", "brands.id")->first();
+            $this->fillProductInfo($product);
+            $products[] = $product;
+            $totalPrice += $product->totalDollars + $product->totalCents / 100;
+        }
+
+
+        $this->set(["products" => $products, "total_price" => $totalPrice]);
+    }
+
 
     function getComparator($param)
     {

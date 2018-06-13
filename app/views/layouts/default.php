@@ -35,8 +35,8 @@ $refresh = rand();
 
 <header class="container-fluid">
     <div class="row align-items-center">
-        <div class="info col">
-            <h3 class="info__text text-center">Whatever header they currently use goes here</h3>
+        <div style="background: url(/img/back1.png) repeat-x;"  class="info col">
+            <h3 class="info__text text-center"></h3>
         </div>
     </div>
     <nav class="navigation row">
@@ -46,19 +46,11 @@ $refresh = rand();
                     <a href="/main" class="menu__link">Main</a>
                 </li>
                 <li class="menu__item">
-                    <a href="#" class="menu__link">Women's</a>
-                </li>
-                <li class="menu__item">
-                    <a href="#" class="menu__link">Men's</a>
-                </li>
-                <li class="menu__item">
                     <a href="/catalog" class="menu__link">Catalog</a>
                 </li>
                 <li class="menu__item">
-                    <a href="/bag.html" class="menu__link">Bag</a>
-                </li>
-                <li class="menu__item">
-                    <a href="/product" class="menu__link">Product</a>
+                    <?=$countBag = isset( $_SESSION["products"])?count($_SESSION["products"]):0?>
+                    <a href="/bag" class="menu__link">Bag<?=$countBag!=0?"({$countBag})":""?></a>
                 </li>
                 <?php if (isset($_SESSION['user'])&&$_SESSION['user']['role_id']==2): ?>
                     <li class="menu__item">

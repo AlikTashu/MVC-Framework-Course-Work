@@ -17,6 +17,10 @@ class Db
     public static $countSql;
     public static $queries=[];
 
+    public function getLastInsertId(){
+        return $this->pdo->lastInsertId("id");
+    }
+
     protected function __construct()
     {
         $db = require ROOT . '/config/config_db.php';

@@ -35,6 +35,8 @@ Router::add("", "home", "main");
 Router::add("main", "home", "main");
 Router::add("test", "main", "kek");
 Router::add("catalog", "products", "catalog");
+Router::add("product", "products", "product");
+Router::add("bag", "products", "bag");
 Router::add("register", "users", "registration");
 Router::add("login", "users", "login");
 Router::add("restore", "users", "restore");
@@ -42,6 +44,8 @@ Router::add("password", "users", "password");
 Router::add("verify", "users", "verify");
 Router::add("admin", "admin", "index");
 Router::add("edit", "admin", "edit");
+
+Router::add("checkout", "products", "checkout");
 
 
 Logger::initialize();
