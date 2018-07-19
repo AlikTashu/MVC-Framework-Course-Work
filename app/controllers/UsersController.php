@@ -24,7 +24,6 @@ class UsersController extends AppController
 
     public function registrationAction()
     {
-        Logger::message("in register action ");
         $data = $_POST;
         $captchaConfig = require ROOT . '/config/captcha_config.php';
         $message = "";
@@ -52,26 +51,6 @@ class UsersController extends AppController
         }
         $this->set(["message" => $message, "data" => $data, "cfg" => $captchaConfig]);
     }
-//
-//    public function regasyncAction()
-//    {
-//        Logger::message("captcha");
-//        $this->isAjax = true;
-//        $data = $_POST;
-//
-//        $cfg = require ROOT . '/config/captcha_config.php';
-//
-//        $re = new ReCaptcha($cfg["private_key"]);
-//        $reValue = $re->verifyResponse($_SERVER["REMOTE_ADDR"], $data['g-recaptcha-response']);
-//
-//        if ($reValue->success) {
-//            Logger::message("Successful captcha");
-//            echo json_encode($data);
-//        } else {
-//            echo 0;
-//        }
-//    }
-
 
     public function loginAction()
     {
@@ -87,7 +66,6 @@ class UsersController extends AppController
             }
 
             if (count($errors) == 0) {
-                //auth logic
                 $_SESSION['user'] = $dataset[0];
                 header('Location:' . '/main');
                 }
@@ -115,7 +93,6 @@ class UsersController extends AppController
         $data = $_POST;
         $message = "";
 
-
         if (isset($data["res_btn"])) {
             if (!isset($data["res_email"])) {
                 $message = "Enter your email!";
@@ -124,7 +101,6 @@ class UsersController extends AppController
                 if ($user == null) {
                     return;
                 }
-
                 Mail::rememberPassword($data["res_email"], $user->hashcode);
                 $message = "Check your email!";
             }
@@ -220,16 +196,11 @@ class UsersController extends AppController
             array_push($errors, "Passwords fo not match");
         }
 
-
-        #$users = User::where('login','=',"{$data["reg_login"]}")->get();
-
-        $users = SQL("SELECT * FROM users WHERE login = ?", [$data["reg_login"]]);
-        if (count($users) > 0) {
+        if (User::checkIfUserExistsByLogin($data["reg_login"])) {
             array_push($errors, "User with the same login already exists");
         }
 
-        $users = SQL("SELECT * FROM users WHERE email = ?", [$data["reg_email"]]);
-        if (count($users) > 0) {
+        if (User::checkIfUserExistsByEmail($data["reg_email"])) {
             array_push($errors, "User with the same email already exists");
         }
         return $errors;

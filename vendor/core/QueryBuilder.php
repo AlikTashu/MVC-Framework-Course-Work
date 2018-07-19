@@ -73,8 +73,6 @@ class QueryBuilder
     public function get()
     {
         $this->compile();
-
-
         Logger::message($this->query);
 
         return Db::instance()->query($this->query, $this->parameters);
@@ -94,57 +92,7 @@ class QueryBuilder
 
     private function compile()
     {
-//        $selectString = 'SELECT ';
-//        if (count($this->select) === 0) {
-//            $selectString .= '*,';
-//        } else {
-//
-//            foreach ($this->select as $item) {
-//                $selectString .=$item . ',';
-//            }
-//        }
-//        $selectString = rtrim($selectString, ', ');
-//        $selectString .= ' FROM ' . $this->table . ' ';
-//
-//
-//        $joinString = '';
-//        foreach ($this->join as $item) {
-//            $joinString .= "JOIN {$item['table']} ON {$item['field1']} = {$item['field2']} ";
-//        }
-//
-//        $whereString = '';
-//        if (count($this->where) !== 0) {
-//            $whereString = 'WHERE ';
-//
-//            for ($i = 0; $i < count($this->where); $i++) {
-//                $whereString .= $this->where[$i]['field1'] . ' ' . $this->where[$i]['relation'] . ' ' . $this->where[$i]['field2'] . ' ';
-//                if ($i !== count($this->where) - 1) {
-//                    $whereString .= $this->where[$i]['logicalOp'] . ' ';
-//                }
-//            }
-//        }
-//
-//        $orderByString = '';
-//        if (count($this->orderby) !== 0) {
-//            $orderByString = 'ORDER BY ';
-//            foreach ($this->orderby as $item) {
-//                $orderByString .= $item . ', ';
-//            }
-//            $orderByString = rtrim($orderByString, ', ');
-//        }
-//
-//
-//        $limitString = '';
-//        if (count($this->limit) !== 0) {
-//            $limitString = " LIMIT {$this->limit['from']}, {$this->limit['to']} ";
-//            $limitString = rtrim($limitString, ', ');
-//        }
-//        $this->query =
-//             $selectString
-//            .$joinString
-//            .$whereString
-//            .$orderByString
-//            .$limitString;
+
         $selectString = 'SELECT ';
         if (count($this->select) === 0) {
             $selectString .= '*,';

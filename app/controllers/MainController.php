@@ -23,30 +23,11 @@ class MainController extends AppController
     {
         echo '<p style = "color:blue">' . __METHOD__ . '</p>';
 
-
-//        $article = new Article(
-//            [
-//                "name"=>"Vladik's story!",
-//                "content"=>"nu chto tut skazat? pisal php.",
-//                "authorId"=>"1"
-//            ], true
-//        );
-//        $article->save();
-
-      #  $articleToDelete = Article::where("id","=","38")->first();
-
-
-        #var_dump($articleToDelete);
-
-       #$articleToDelete->delete();
-
         $article = Article::first();
         $article->title = "test update";
         $article->save();
 
-
-
-       $articles = QueryBuilder::table('articles')->join('authors', 'authors.id', 'articles.authorId')->get();
+        $articles = QueryBuilder::table('articles')->join('authors', 'authors.id', 'articles.authorId')->get();
 
         $this->set(compact('articles', 'article', 'test'));
     }

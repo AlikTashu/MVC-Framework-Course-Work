@@ -36,10 +36,10 @@
                 <h3 class="order__title">Order summary</h3>
                 <hr class="order__line">
                 <p class="order__products">Amount of products :
-                    <span class="order__amount"><?=count($_SESSION["products"])?></span>
+                    <span class="order__amount"><?=(isset($_SESSION["products"])?count($_SESSION["products"]):"0")?></span>
                 </p>
                 <p class="order__price">Total price :
-                    <span class="order__price--accent">$<?=$total_price?></span>
+                    <span class="order__price--accent">$<?=$total_price?:0?></span>
                 </p>
                 <form action="/checkout" method="post">
                     <input type="hidden" name="total_price" value="<?=$total_price?>" />

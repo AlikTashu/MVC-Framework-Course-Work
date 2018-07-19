@@ -176,8 +176,12 @@ class ProductsController extends AppController
     public function bagAction()
     {
         $productNumbers = $_SESSION["products"];
+        if(!isset($productNumbers)){
+            return;
+        }
         $products = [];
         $totalPrice = 0;
+
         foreach ($productNumbers as $number) {
             $product = Product::where("number", "=", $number)->join("models", "products.model_id", "models.id")->
             join("categories", "models.category_id", "categories.id")->join("brands", "models.brand_id", "brands.id")->first();
